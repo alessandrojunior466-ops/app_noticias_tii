@@ -3,12 +3,55 @@ import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
+  static final List<Map<String, String>> noticias = [
+    {
+      'titulo': 'Nova tecnologia promete transformar o mercado',
+      'resumo':
+          'Uma nova solução tecnológica pode mudar a forma como empresas trabalham nos próximos anos.',
+      'categoria': 'Tecnologia',
+      'data': '06/10/2026',
+    },
+    {
+      'titulo': 'Brasil anuncia novos investimentos em educação',
+      'resumo':
+          'O governo anunciou novos investimentos para melhorar a infraestrutura das escolas públicas.',
+      'categoria': 'Educação',
+      'data': '05/10/2026',
+    },
+    {
+      'titulo': 'Mercado de trabalho ganha novas oportunidades',
+      'resumo':
+          'Empresas de diferentes setores estão abrindo novas vagas para profissionais.',
+      'categoria': 'Economia',
+      'data': '04/10/2026',
+    },
+    {
+      'titulo': 'Campeonato brasileiro chega à reta final',
+      'resumo':
+          'Os principais times se preparam para as últimas rodadas da competição nacional.',
+      'categoria': 'Esportes',
+      'data': '03/10/2026',
+    },
+    {
+      'titulo': 'Previsão indica semana de temperaturas elevadas',
+      'resumo':
+          'Meteorologistas preveem temperaturas acima da média em diversas regiões do país.',
+      'categoria': 'Brasil',
+      'data': '02/10/2026',
+    },
+  ];
+
   static final List<String> categorias = [
     'Todas',
     'Programação',
     'Cloud',
     'Hardware',
     'Cibersegurança',
+    'Tecnologia',
+    'Educação',
+    'Economia',
+    'Esportes',
+    'Brasil',
   ];
 
   @override
@@ -58,6 +101,54 @@ class HomePage extends StatelessWidget {
                   ),
                 );
               }).toList(),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              padding: const EdgeInsets.all(12),
+              itemCount: noticias.length,
+              itemBuilder: (context, index) {
+                final noticia = noticias[index];
+                return Card(
+                  margin: const EdgeInsets.only(bottom: 12),
+                  color: Colors.white,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    side: const BorderSide(color: Color(0xFFCBD2D9)),
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        height: 120,
+                        color: const Color(0xFFE4e9EF),
+                        child: const Icon(Icons.image_outlined),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.all(12),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Text('Tecnologia'),
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                Text('03/10/2026'),
+                              ],
+                            ),
+                            Text(
+                              'Uma nova solução tecnológica pode mudar a forma como empresas trabalham nos próximos anos.',
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
           ),
         ],
