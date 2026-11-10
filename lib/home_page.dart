@@ -2,6 +2,7 @@ import 'package:app_noticias_tii/detalhe_noticia_page.dart';
 import 'package:app_noticias_tii/models/categoria.dart';
 import 'package:app_noticias_tii/models/noticia.dart';
 import 'package:app_noticias_tii/services/categoria_service.dart';
+import 'package:app_noticias_tii/services/login_page.dart';
 import 'package:app_noticias_tii/services/noticia_service.dart';
 import 'sobre_page.dart';
 import 'package:flutter/material.dart';
@@ -114,6 +115,9 @@ class _HomePageState extends State<HomePage> {
               onTap: () => Navigator.pop(context),
             ),
             // ADICIONADO AQUI: Opção Sobre
+
+            const Divider(),
+
             ListTile(
               leading: const Icon(Icons.info_outline),
               title: const Text('Sobre'),
@@ -122,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SobrePage(),
+                    builder: (context) => const LoginPage(),
                   ),
                 );
               },
